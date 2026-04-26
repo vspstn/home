@@ -275,6 +275,21 @@ faders.forEach(fader => {
     appearOnScroll.observe(fader);
 });
 </script>
+<script>
+function calculateTotal() {
+    let service = parseInt(document.getElementById("serviceType").value);
+    let distance = parseInt(document.getElementById("distance").value);
+    let attempts = parseInt(document.getElementById("attempts").value);
+
+    let total = service + distance + attempts;
+
+    document.getElementById("total").innerText = total;
+}
+
+document.querySelectorAll("select").forEach(el => {
+    el.addEventListener("change", calculateTotal);
+});
+</script>
 
 </body>
 </html>
