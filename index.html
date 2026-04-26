@@ -243,12 +243,6 @@ footer {
     <option value="rush">Rush (1-2 Days)</option>
     <option value="same_day">Same Day</option>
 </select>
-<input type="text" id="addressInput" placeholder="Service Address">
-<button onclick="calculateDistance()">Calculate Distance</button>
-
-<p>Distance: <span id="miles">0</span> miles</p>
-<p>Travel Fee: $<span id="travelFee">0</span></p>
-
 <textarea name="notes" placeholder="Additional Details"></textarea>
             <button type="submit">Submit Request</button>
         </form>
@@ -295,30 +289,7 @@ document.querySelectorAll("select").forEach(el => {
     el.addEventListener("change", calculateTotal);
 });
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 
-<script>
-function calculateDistance() {
-    const service = new google.maps.DistanceMatrixService();
-
-    service.getDistanceMatrix({
-        origins: ["LaFollette, TN"],
-        destinations: [document.getElementById("addressInput").value],
-        travelMode: "DRIVING"
-    }, function(response, status) {
-        if (status === "OK") {
-            let miles = response.rows[0].elements[0].distance.value / 1609;
-            document.getElementById("miles").innerText = miles.toFixed(1);
-
-            let fee = 0;
-            if (miles > 20) fee = 25;
-            if (miles > 40) fee = 50;
-
-            document.getElementById("travelFee").innerText = fee;
-        }
-    });
-}
-</script>
 
 </body>
 </html>
