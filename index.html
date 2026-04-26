@@ -196,12 +196,24 @@ footer {
 
     <div class="form-container">
         <!-- FORM -->
-        <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="text" name="phone" placeholder="Phone Number">
-            <textarea name="message" placeholder="Details of Service Needed" required></textarea>
-            <button type="submit">Submit Request</button>
+		
+        <form action="https://formspree.io/f/mbdqejlb" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="text" name="phone" placeholder="Phone Number" required>
+
+<input type="text" name="case_type" placeholder="Type of Service (Summons, Subpoena, etc.)" required>
+
+<input type="text" name="address" placeholder="Service Address" required>
+
+<select name="service_speed" required>
+    <option value="">Select Service Speed</option>
+    <option value="standard">Standard (3-5 Days)</option>
+    <option value="rush">Rush (1-2 Days)</option>
+    <option value="same_day">Same Day</option>
+</select>
+
+<textarea name="notes" placeholder="Additional Details"></textarea>
         </form>
     </div>
 </section>
